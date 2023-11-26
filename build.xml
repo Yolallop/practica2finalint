@@ -3,7 +3,9 @@
     java-algorithms-implementation build file
   </description>
 
+
   <!-- set global properties for this build -->
+  <property name="main-class" value="aplicacion.Main"/>
   <property name="src" location="src"/>
   <property name="test" location="test"/>
   <property name="build" location="build"/>
@@ -23,6 +25,7 @@
       <include name="**/*.jar" />
     </fileset>
   </path>
+  
 
   <target name="echo.env_vars">
     <property environment="env_vars"/>
@@ -53,11 +56,21 @@
       <classpath refid="class.path" />
     </javac>
   </target>
-
   <target name="dist" depends="build" description="generate the distribution">
-    <!-- Put everything in ${build} into the java-algorithms-implementation-${DSTAMP}.jar file -->
-    <jar jarfile="${dist}/java-algorithms-implementation-${DSTAMP}.jar" basedir="${build}"/>
+    <jar jarfile="${dist}/java-algorithms-implementation-${DSTAMP}.jar"
+  basedir="${build}">
+    <manifest>
+    <attribute name="Main-Class" value="${main-class}"/>
+    </manifest>
+  </jar>
+</target>
+
+  <target name="run_main" depends="dist">
+    <java jar="${dist}/java-algorithms-implementation-${DSTAMP}.jar"fork="true"/>
   </target>
+
+
+ 
 
   <target name="build_tests" depends="dist" description="build the source">
     <!-- Compile the java testing code from ${test} into ${build} -->
