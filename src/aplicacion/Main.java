@@ -1,4 +1,4 @@
-
+package aplicacion;
 
 import com.jwetherell.algorithms.data_structures.Graph;
 import com.jwetherell.algorithms.data_structures.Graph.Edge;
