@@ -9,7 +9,18 @@ este algoritmo para un grafo concreto.
     -sudo apt install ant
     -Modificaciones en build.xml
     -Cambio en el main 2 grafós uno dirigido y otro no
-    
+        Una vez ejecutado:
+
+         UNDIRECTED GRAPH: Optimal path from vertex 1 to 8:
+                    [ 1(0) ] -> [ 8(0) ] = 1
+
+            DIRECTED GRAPH: Optimal path from vertex 1 to 8:
+                    [ 1(0) ] -> [ 3(0) ] = 9
+
+                    [ 3(0) ] -> [ 6(0) ] = 2
+
+                    [ 6(0) ] -> [ 8(0) ] = 14
+        
 
 ## Reglas del juego
 1. ¿Qué variable representa la lista ABIERTA?
